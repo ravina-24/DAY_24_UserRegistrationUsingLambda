@@ -9,54 +9,52 @@ namespace UserRegistrationUsingLambda
     {
         public void Validate()
         { 
-            string[] Regex_Pattern = new string[6];
+            string[] RegexPattern = new string[6];
 
-            Regex_Pattern[0] = "^[A-Z][A-Za-z]{2,}$";  //Firstname
+            RegexPattern[0] = "^[A-Z][A-Za-z]{2,}$";  
 
-            Regex_Pattern[1] = "^[A-Z][A-Za-z]{2,}$";  //LastName
+            RegexPattern[1] = "^[A-Z][A-Za-z]{2,}$";  
 
-            Regex_Pattern[2] = "^[A-Z0-9a-z]{1,}([.#$^][A-Za-z0-9]+)?[@][A-Za-z]{2,}[.][A-Za-z]{2,3}([.][a-zA-Z]{2})?$";  //EmailId
+            RegexPattern[2] = "^[A-Z0-9a-z]{1,}([.#$^][A-Za-z0-9]+)?[@][A-Za-z]{2,}[.][A-Za-z]{2,3}([.][a-zA-Z]{2})?$";  
 
-            Regex_Pattern[3] = "^[1-9]{2}[ ][0-9]{10}$";  //phonenumber
+            RegexPattern[3] = "^[1-9]{2}[ ][0-9]{10}$";  
 
-            Regex_Pattern[4] = "^([a-zA-Z0-9])*[!@#$%^&*]{1}([a-zA-Z0-9])*$";  //password
+            RegexPattern[4] = "^([a-zA-Z0-9])*[!@#$%^&*]{1}([a-zA-Z0-9])*$";
 
-            Regex_Pattern[5] = "^[A-Z0-9a-z]{1,}([.#$^][A-Za-z0-9]+)?[@][A-Za-z]{2,}[.][A-Za-z]{2,3}([.][a-zA-Z]{2})?$"; //sampleEmailId
+            RegexPattern[5] = "^[A-Z0-9a-z]{1,}([.#$^][A-Za-z0-9]+)?[@][A-Za-z]{2,}[.][A-Za-z]{2,3}([.][a-zA-Z]{2})?$"; 
 
-            string[] User_Input = new string[6];
+            string[] UserInput = new string[6];
 
             Console.Write("Enter First Name :");
-            User_Input[0] = Console.ReadLine();
+            UserInput[0] = Console.ReadLine();
 
 
             Console.Write("Enter Last Name :");
-            User_Input[1] = Console.ReadLine();
+            UserInput[1] = Console.ReadLine();
 
 
             Console.Write("Enter  Email Id : ");
-            User_Input[2] = Console.ReadLine();
+            UserInput[2] = Console.ReadLine();
 
 
             Console.Write("Enter the Phone Number : ");
-            User_Input[3] = Console.ReadLine();
+            UserInput[3] = Console.ReadLine();
 
 
-            Console.WriteLine("Enter Password : ");
-            User_Input[4] = Console.ReadLine();
-            Console.WriteLine();
+            Console.Write("Enter Password : ");
+            UserInput[4] = Console.ReadLine();
+          
+            Console.Write("Enter Sample Email Id : ");
+            UserInput[5] = Console.ReadLine();
 
-            Console.WriteLine("Enter Sample Email Id : ");
-            User_Input[5] = Console.ReadLine();
-
-
-
+            Console.WriteLine("............................"); 
 
             for (int i = 0; i < 6; i++)
             {
 
-                Func<string, bool> nameValidater = User_Input_Array => Regex.IsMatch(User_Input_Array, Regex_Pattern[i]);
-                bool result = nameValidater(User_Input[i]);
-                Console.WriteLine(($"{i + 1} {User_Input[i]} : {result}"));
+                Func<string, bool> nameValidater = UserInput => Regex.IsMatch(UserInput, RegexPattern[i]);
+                bool result = nameValidater(UserInput[i]);
+                Console.WriteLine(($"{i + 1} {UserInput[i]} : {result}"));
 
             }
         }
